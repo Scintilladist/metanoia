@@ -8,7 +8,7 @@ const int ledPin =  13;
 const int sOFF =  12;
 //unsigned long lastGPS = 0;
 
-char phone_no[] = "9902061316";
+char phone_no[] = "##########";
  
 TinyGPS gps;
  
@@ -41,8 +41,9 @@ void loop()
     }
   }
  
-  if (buttonState == HIGH && newData == true)      //If newData is true
+  if (buttonState == HIGH)      //If newData is true
   {
+    digitalWrite(ledPin, HIGH);
     //lastGPS = millis();
     count =1;
     float flat, flon;
@@ -63,7 +64,7 @@ void loop()
     delay(200);
     Gsm.println((char)26);
     delay(200);
-    digitalWrite(ledPin, HIGH);
+    digitalWrite(ledPin, LOW);
     Gsm.println();
     delay(20000);
  
